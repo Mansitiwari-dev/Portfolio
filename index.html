@@ -87,7 +87,8 @@
             <a href="#projects" class="btn-premium btn-primary-gradient">
               Explore Work <i class="fa-solid fa-arrow-right ms-2 fs-6"></i>
             </a>
-            <a href="Mansi_Tiwari_CV.pdf" class="btn-premium btn-outline-glass" download>
+            <!-- Direct link to existing PDF file -->
+            <a href="Mansi Tiwari .pdf" class="btn-premium btn-outline-glass" id="resume-download" download>
               <i class="fa-solid fa-download me-2"></i> Resume
             </a>
           </div>
@@ -292,20 +293,19 @@
             <p class="text-muted mb-4 opacity-75">I'm currently available for freelance projects and scalable
               opportunities. Drop me a line and let's craft something beautiful.</p>
 
-            <form
-              onsubmit="event.preventDefault(); alert('Message Formatter Active! Note: Attach a backend service to process this.');">
+            <form id="contact-form">
               <div class="row g-3">
                 <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="Full Name" required>
+                  <input type="text" class="form-control" id="contact-name" placeholder="Full Name" required>
                 </div>
                 <div class="col-md-6">
-                  <input type="email" class="form-control" placeholder="Email Address" required>
+                  <input type="email" class="form-control" id="contact-email" placeholder="Email Address" required>
                 </div>
                 <div class="col-12">
-                  <input type="text" class="form-control" placeholder="Subject" required>
+                  <input type="text" class="form-control" id="contact-subject" placeholder="Subject" required>
                 </div>
                 <div class="col-12">
-                  <textarea rows="4" class="form-control" placeholder="Your Message..." required></textarea>
+                  <textarea rows="4" class="form-control" id="contact-message" placeholder="Your Message..." required></textarea>
                 </div>
                 <div class="col-12 mt-4">
                   <button type="submit" class="btn-premium btn-primary-gradient w-100 py-3"
