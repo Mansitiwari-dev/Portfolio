@@ -247,7 +247,7 @@ a {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 1.75rem;
+  padding: 1.5rem;
   box-shadow: var(--shadow-sm);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -455,7 +455,7 @@ a {
 .footer {
   border-top: 1px solid var(--border);
   background: var(--bg-elevated);
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 }
 
 @media (max-width: 991px) {

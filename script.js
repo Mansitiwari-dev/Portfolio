@@ -103,7 +103,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const res = await fetch(
         `https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=12&type=owner`
       );
-      if (!res.ok) throw new Error('GitHub API error');
+      
+      if (!res.ok) {
+        const errorText = await res.text();
+        console.error('GitHub API error:', res.status, errorText);
+        throw new Error(`GitHub API returned ${res.status}: ${errorText}`);
+      }
 
       const repos = await res.json();
       const publicRepos = repos.filter((repo) => !repo.fork);
@@ -156,11 +161,11 @@ document.addEventListener('DOMContentLoaded', () => {
         container.insertAdjacentHTML('beforeend', cardHTML);
       });
     } catch (err) {
-      console.error(err);
+      console.error('GitHub projects fetch error:', err);
       container.innerHTML = `
         <div class="col-12 text-center text-muted py-4">
-          <p class="mb-2">Could not load projects from GitHub.</p>
-          <a href="https://github.com/${GITHUB_USER}" target="_blank" rel="noopener noreferrer" class="btn btn-project-primary btn-sm">Open GitHub profile</a>
+          <p class="mb-2">Could not load projects from GitHub. <small class="text-muted d-block mt-1">${err.message}</small></p>
+          <a href="https://github.com/${GITHUB_USER}?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-project-primary btn-sm">View all repositories on GitHub</a>
         </div>`;
     }
   };
